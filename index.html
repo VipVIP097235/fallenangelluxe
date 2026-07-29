@@ -17,7 +17,10 @@
     }
 
     body {
-      background-color: #050508;
+      /* BACKGROUND IMAGE WITH DARK TINT OVERLAY */
+      background: linear-gradient(rgba(5, 5, 8, 0.85), rgba(5, 5, 8, 0.85)), 
+                  url('luxe-laying-down.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #e2e2e8;
       font-family: 'Poppins', sans-serif;
       line-height: 1.6;
@@ -44,11 +47,12 @@
     /* Profile Header Card */
     .profile-card {
       text-align: center;
-      background: linear-gradient(180deg, #0e0c14 0%, #050508 100%);
+      background: rgba(14, 12, 20, 0.75);
+      backdrop-filter: blur(10px);
       padding: 35px 25px;
       border-radius: 24px;
-      border: 1px solid rgba(138, 3, 3, 0.25);
-      box-shadow: 0 0 30px rgba(138, 3, 3, 0.15);
+      border: 1px solid rgba(138, 3, 3, 0.35);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
     }
 
     .avatar-glow {
@@ -90,8 +94,8 @@
       font-weight: 600;
       font-size: 0.95rem;
       transition: all 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: #10101a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(16, 16, 26, 0.85);
       color: #ffffff;
     }
 
@@ -100,7 +104,7 @@
     }
 
     .btn-discord {
-      background: linear-gradient(135deg, #5865F2, #3b47c2);
+      background: linear-gradient(135deg, rgba(88, 101, 242, 0.9), rgba(59, 71, 194, 0.9));
       border: none;
       box-shadow: 0 0 20px rgba(88, 101, 242, 0.4);
     }
@@ -126,11 +130,12 @@
 
     /* Dark Teaser Section */
     .teaser-card {
-      background: linear-gradient(180deg, #0d0912 0%, #140508 100%);
+      background: rgba(13, 9, 18, 0.8);
+      backdrop-filter: blur(10px);
       padding: 25px;
       border-radius: 24px;
-      border: 1px solid rgba(138, 3, 3, 0.3);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(138, 3, 3, 0.35);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
     }
 
     .teaser-card h2 {
@@ -150,7 +155,7 @@
       border-radius: 14px;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
     }
 
     video {
@@ -162,7 +167,7 @@
     footer {
       text-align: center;
       font-size: 0.8rem;
-      color: #505060;
+      color: #808090;
       margin-top: 15px;
     }
   </style>
@@ -173,7 +178,7 @@
 
     <!-- 🪽 BRAND / PROFILE HEADER -->
     <header class="profile-card">
-      <!-- REPLACE WITH YOUR NEW PROFILE PICTURE URL -->
+      <!-- REPLACE WITH YOUR PROFILE AVATAR IMAGE -->
       <img src="https://via.placeholder.com/150" alt="FallenAngelluxe" class="avatar-glow">
       <h1>FallenAngelluxe</h1>
       <p>A new era begins. 🪽🖤</p>
