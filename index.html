@@ -128,40 +128,59 @@
       box-shadow: 0 0 18px rgba(255, 255, 255, 0.35);
     }
 
-    /* Dark Teaser Section */
-    .teaser-card {
+    /* Countdown Card */
+    .countdown-card {
       background: rgba(13, 9, 18, 0.8);
       backdrop-filter: blur(10px);
-      padding: 25px;
+      padding: 28px 20px;
       border-radius: 24px;
       border: 1px solid rgba(138, 3, 3, 0.35);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      text-align: center;
     }
 
-    .teaser-card h2 {
+    .countdown-card h2 {
       font-size: 1.3rem;
       color: #ff4d4d;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
-    .teaser-card p {
+    .countdown-card p {
       font-size: 0.88rem;
       color: #c0a0a0;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
-    .video-container {
-      width: 100%;
+    /* Countdown Numbers Grid */
+    .timer-grid {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .time-box {
+      background: rgba(8, 8, 12, 0.85);
+      border: 1px solid rgba(138, 3, 3, 0.4);
       border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+      padding: 12px 14px;
+      min-width: 65px;
+      box-shadow: 0 0 15px rgba(138, 3, 3, 0.2);
     }
 
-    video {
-      width: 100%;
-      height: auto;
+    .time-box span {
       display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+    }
+
+    .time-box label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #808090;
     }
 
     footer {
@@ -178,7 +197,6 @@
 
     <!-- 🪽 BRAND / PROFILE HEADER -->
     <header class="profile-card">
-      <!-- REPLACE WITH YOUR PROFILE AVATAR IMAGE -->
       <img src="https://via.placeholder.com/150" alt="FallenAngelluxe" class="avatar-glow">
       <h1>FallenAngelluxe</h1>
       <p>A new era begins. 🪽🖤</p>
@@ -192,17 +210,28 @@
       </div>
     </header>
 
-    <!-- 🥀 OFFICIAL FIRST TEASER -->
-    <section class="teaser-card">
-      <h2>🥀 Official Teaser</h2>
-      <p>Something dark is rising...</p>
+    <!-- ⏳ COUNTDOWN SECTION -->
+    <section class="countdown-card">
+      <h2>⏳ Official Launch Countdown</h2>
+      <p>The gates open soon...</p>
 
-      <div class="video-container">
-        <!-- TEASER VIDEO FILE -->
-        <video controls autoplay muted loop>
-          <source src="teaser2.mp4" type="video/mp4">
-          Your browser does not support video.
-        </video>
+      <div class="timer-grid">
+        <div class="time-box">
+          <span id="days">00</span>
+          <label>Days</label>
+        </div>
+        <div class="time-box">
+          <span id="hours">00</span>
+          <label>Hours</label>
+        </div>
+        <div class="time-box">
+          <span id="minutes">00</span>
+          <label>Mins</label>
+        </div>
+        <div class="time-box">
+          <span id="seconds">00</span>
+          <label>Secs</label>
+        </div>
       </div>
     </section>
 
@@ -211,6 +240,35 @@
     </footer>
 
   </div>
+
+  <!-- COUNTDOWN SCRIPT -->
+  <script>
+    // SET YOUR LAUNCH DATE HERE (Format: YYYY-MM-DDTHH:MM:SS)
+    const launchDate = new Date("2026-08-15T00:00:00").getTime();
+
+    const updateTimer = () => {
+      const now = new Date().getTime();
+      const difference = launchDate - now;
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+        document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+        document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+      } else {
+        document.querySelector(".countdown-card p").innerText = "The new era has arrived!";
+        document.querySelector(".timer-grid").innerHTML = "<h3 style='color:#ff4d4d; font-family:Cinzel;'>NOW LIVE</h3>";
+      }
+    };
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
 
 </body>
 </html>
