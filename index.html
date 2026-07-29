@@ -51,18 +51,8 @@
       backdrop-filter: blur(10px);
       padding: 35px 25px;
       border-radius: 24px;
-      border: 1px solid rgba(138, 3, 3, 0.35);
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
-    }
-
-    .avatar-glow {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #8a0303;
-      box-shadow: 0 0 25px rgba(138, 3, 3, 0.6);
-      margin-bottom: 18px;
+      border: 1px solid rgba(212, 175, 55, 0.4); /* GOLD OUTLINE */
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.15); /* SOFT GOLD GLOW */
     }
 
     .profile-card h1 {
@@ -95,7 +85,7 @@
       font-size: 0.95rem;
       transition: all 0.3s ease;
       background: #ffffff !important; /* Solid White */
-      color: #08080c !important; /* Dark text for contrast */
+      color: #08080c !important; /* Dark text */
       border: 1px solid #ffffff;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     }
@@ -106,7 +96,6 @@
       box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
     }
 
-    /* Overrides Discord's blue class to keep it white */
     .btn-discord {
       background: #ffffff !important;
     }
@@ -117,14 +106,14 @@
       backdrop-filter: blur(10px);
       padding: 28px 20px;
       border-radius: 24px;
-      border: 1px solid rgba(138, 3, 3, 0.35);
+      border: 1px solid rgba(212, 175, 55, 0.4); /* GOLD OUTLINE */
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
       text-align: center;
     }
 
     .countdown-card h2 {
       font-size: 1.3rem;
-      color: #ff4d4d;
+      color: #d4af37; /* GOLD TITLE */
       margin-bottom: 6px;
     }
 
@@ -143,11 +132,11 @@
 
     .time-box {
       background: rgba(8, 8, 12, 0.85);
-      border: 1px solid rgba(138, 3, 3, 0.4);
+      border: 1px solid rgba(212, 175, 55, 0.5); /* GOLD OUTLINE */
       border-radius: 14px;
       padding: 12px 14px;
       min-width: 65px;
-      box-shadow: 0 0 15px rgba(138, 3, 3, 0.2);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
     }
 
     .time-box span {
@@ -156,7 +145,7 @@
       font-size: 1.5rem;
       font-weight: 700;
       color: #ffffff;
-      text-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.6); /* GOLD TEXT GLOW */
     }
 
     .time-box label {
@@ -180,9 +169,6 @@
 
     <!-- 🪽 BRAND / PROFILE HEADER -->
     <header class="profile-card">
-      <!-- Optional Avatar Image: Replace pfp.png with your image file name or delete this line -->
-      <img src="pfp.png" alt="FallenAngelluxe" class="avatar-glow">
-
       <h1>FALLENANGELLUXE</h1>
       <p>A new era begins. 🪽🖤</p>
 
@@ -247,7 +233,7 @@
         document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
       } else {
         document.querySelector(".countdown-card p").innerText = "The new era has arrived!";
-        document.querySelector(".timer-grid").innerHTML = "<h3 style='color:#ff4d4d; font-family:Cinzel;'>NOW LIVE</h3>";
+        document.querySelector(".timer-grid").innerHTML = "<h3 style='color:#d4af37; font-family:Cinzel;'>NOW LIVE</h3>";
       }
     }
 
