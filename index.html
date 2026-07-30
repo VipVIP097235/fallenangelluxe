@@ -17,7 +17,6 @@
     }
 
     body {
-      /* BACKGROUND IMAGE WITH DARK OVERLAY TINT */
       background: linear-gradient(rgba(5, 5, 8, 0.85), rgba(5, 5, 8, 0.85)), 
                   url('luxe-laying-down.jpg') no-repeat center center fixed;
       background-size: cover;
@@ -51,8 +50,8 @@
       backdrop-filter: blur(10px);
       padding: 35px 25px;
       border-radius: 24px;
-      border: 1px solid rgba(212, 175, 55, 0.4); /* GOLD OUTLINE */
-      box-shadow: 0 0 30px rgba(212, 175, 55, 0.15); /* SOFT GOLD GLOW */
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
     }
 
     .profile-card h1 {
@@ -84,8 +83,8 @@
       font-weight: 600;
       font-size: 0.95rem;
       transition: all 0.3s ease;
-      background: #ffffff !important; /* Solid White */
-      color: #08080c !important; /* Dark text */
+      background: #ffffff !important; 
+      color: #08080c !important; 
       border: 1px solid #ffffff;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     }
@@ -100,20 +99,44 @@
       background: #ffffff !important;
     }
 
+    /* 📖 Lore Section */
+    .lore-card {
+      background: rgba(13, 9, 18, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 30px 25px;
+      border-radius: 24px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      text-align: center;
+    }
+
+    .lore-card h2 {
+      font-size: 1.5rem;
+      color: #d4af37;
+      margin-bottom: 12px;
+    }
+
+    .lore-card p {
+      font-size: 0.9rem;
+      color: #d0d0d8;
+      line-height: 1.8;
+      text-align: center; /* Keeps the text centered, but you can change to 'left' if you write a lot! */
+    }
+
     /* Countdown Card */
     .countdown-card {
       background: rgba(13, 9, 18, 0.8);
       backdrop-filter: blur(10px);
       padding: 28px 20px;
       border-radius: 24px;
-      border: 1px solid rgba(212, 175, 55, 0.4); /* GOLD OUTLINE */
+      border: 1px solid rgba(212, 175, 55, 0.4);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
       text-align: center;
     }
 
     .countdown-card h2 {
       font-size: 1.3rem;
-      color: #d4af37; /* GOLD TITLE */
+      color: #d4af37;
       margin-bottom: 6px;
     }
 
@@ -132,7 +155,7 @@
 
     .time-box {
       background: rgba(8, 8, 12, 0.85);
-      border: 1px solid rgba(212, 175, 55, 0.5); /* GOLD OUTLINE */
+      border: 1px solid rgba(212, 175, 55, 0.5);
       border-radius: 14px;
       padding: 12px 14px;
       min-width: 65px;
@@ -145,7 +168,7 @@
       font-size: 1.5rem;
       font-weight: 700;
       color: #ffffff;
-      text-shadow: 0 0 10px rgba(212, 175, 55, 0.6); /* GOLD TEXT GLOW */
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
     }
 
     .time-box label {
@@ -181,6 +204,14 @@
       </div>
     </header>
 
+    <!-- 📖 LORE SECTION -->
+    <section class="lore-card">
+      <h2>The Story of Luxe</h2>
+      <p>
+        Replace this text with the official lore of Luxe. You can write about where she came from, the secrets of her realm, or tease what is coming next in your series...
+      </p>
+    </section>
+
     <!-- ⏳ COUNTDOWN SECTION -->
     <section class="countdown-card">
       <h2>⏳ Official Launch Countdown</h2>
@@ -214,7 +245,6 @@
 
   <!-- LIVE COUNTDOWN SCRIPT -->
   <script>
-    // TARGET LAUNCH DATE: AUGUST 6, 2026
     const launchDate = new Date("2026/08/06 00:00:00").getTime();
 
     function updateTimer() {
