@@ -99,9 +99,9 @@
       background: #ffffff !important;
     }
 
-    /* 📖 Lore Section */
+    /* 📖 Interactive Lore Card */
     .lore-card {
-      background: rgba(13, 9, 18, 0.8);
+      background: rgba(13, 9, 18, 0.85);
       backdrop-filter: blur(10px);
       padding: 30px 25px;
       border-radius: 24px;
@@ -113,14 +113,88 @@
     .lore-card h2 {
       font-size: 1.5rem;
       color: #d4af37;
-      margin-bottom: 12px;
+      margin-bottom: 4px;
     }
 
-    .lore-card p {
+    .lore-subtitle {
+      font-size: 0.78rem;
+      color: #d4af37;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      opacity: 0.85;
+    }
+
+    /* Pull Quote Teaser */
+    .lore-quote {
+      background: rgba(5, 5, 8, 0.6);
+      border-left: 3px solid #d4af37;
+      padding: 12px 16px;
+      margin-bottom: 15px;
+      font-style: italic;
+      color: #f0f0f5;
+      text-align: left;
+      border-radius: 6px;
       font-size: 0.9rem;
-      color: #d0d0d8;
-      line-height: 1.8;
-      text-align: center; /* Keeps the text centered, but you can change to 'left' if you write a lot! */
+      line-height: 1.5;
+    }
+
+    /* Toggle Button */
+    .lore-toggle-btn {
+      background: rgba(212, 175, 55, 0.12);
+      color: #d4af37;
+      border: 1px solid #d4af37;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .lore-toggle-btn:hover {
+      background: #d4af37;
+      color: #08080c;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    }
+
+    /* Expandable Content Container */
+    .lore-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), opacity 0.4s ease;
+      opacity: 0;
+      text-align: left;
+    }
+
+    .lore-details.open {
+      max-height: 1200px;
+      opacity: 1;
+      margin-top: 22px;
+      transition: max-height 0.8s ease-in-out, opacity 0.5s ease;
+    }
+
+    .lore-chapter {
+      margin-bottom: 18px;
+    }
+
+    .lore-chapter h3 {
+      color: #ffffff;
+      font-size: 0.98rem;
+      font-family: 'Cinzel', serif;
+      margin-bottom: 6px;
+    }
+
+    .lore-chapter p {
+      font-size: 0.88rem;
+      color: #b5b5c0;
+      line-height: 1.65;
     }
 
     /* Countdown Card */
@@ -204,19 +278,46 @@
       </div>
     </header>
 
-    <!-- 📖 LORE SECTION -->
+    <!-- 📖 LORE SECTION (Option 1 + Option 3) -->
     <section class="lore-card">
-      <h2>The Story of Luxe</h2>
-      <p>
-     The Light Within the Shadow
-​🌌 The Sun’s Eclipse
-​She was once a guardian of pure celestial light, but during a great eclipse—a moment when darkness covered the sun—she felt a deep, overwhelming heaviness wash over her. It wasn't an evil curse; it was a profound sadness and exhaustion that weighed down her spirit. She felt disconnected from the flawless, shining light around her, feeling like she was the only one who didn't belong in the heavens.
-​🪽 The Fall & The Insecurity
-​Feeling "flawed" compared to the pristine, perfect angels above, she cast herself down to Earth. She covered herself in wide sunhats, soft layers, and delicate lace—not just for fashion, but as a protective armor because she struggled to look at her own reflection. She saw herself as broken, heavy, and imperfect, believing her light had gone out completely.
-​
-​What she didn't realize was that falling to Earth didn't ruin her—it transformed her. The golden sun-rays didn't leave her; they absorbed into her trim, her hair, and her warm, honeyed tones.
-​Her red-bottom heels represent the ground she now walks on: proof that even when you feel grounded by sadness or self-doubt, you are still walking, still standing, and still royalty. She is learning that she doesn't have to be a "flawless" celestial being to be beautiful. Her worth comes from surviving the dark eclipse and finding warmth in her own skin, step by step.
-      </p>
+      <h2>☀️ The Eclipse Lore</h2>
+      <div class="lore-subtitle">The Light Within the Shadow</div>
+
+      <!-- Atmospheric Quote Teaser -->
+      <blockquote class="lore-quote">
+        "Even when grounded by sadness or self-doubt... you are still walking, still standing, and still royalty."
+      </blockquote>
+
+      <!-- Expand/Collapse Button -->
+      <button class="lore-toggle-btn" id="loreBtn" onclick="toggleLore()">
+        📜 Unveil the Lore
+      </button>
+
+      <!-- Slide-Out Lore Details -->
+      <div class="lore-details" id="loreDetails">
+        
+        <div class="lore-chapter">
+          <h3>🌌 I. The Sun’s Eclipse</h3>
+          <p>
+            Once a guardian of pure celestial light, a great eclipse brought a deep, overwhelming exhaustion. Disconnected from the flawless, shining light around her, she felt like the only one who didn't belong in the heavens.
+          </p>
+        </div>
+
+        <div class="lore-chapter">
+          <h3>🪽 II. The Fall & The Insecurity</h3>
+          <p>
+            Feeling flawed compared to the perfect beings above, she cast herself down to Earth. She covered herself in wide sunhats, soft layers, and delicate lace—not just for fashion, but as <strong style="color: #ffffff;">protective armor</strong> because she struggled to look at her own reflection.
+          </p>
+        </div>
+
+        <div class="lore-chapter">
+          <h3>🌻 III. The Golden Realization</h3>
+          <p>
+            Falling to Earth didn't ruin her—it transformed her. Golden sun-rays absorbed into her trim, her hair, and her warm, honeyed tones. Her <strong style="color: #d4af37;">red-bottom heels</strong> represent the ground she now walks on: proof that surviving the dark eclipse makes you stronger than remaining untouched in the sky.
+          </p>
+        </div>
+
+      </div>
     </section>
 
     <!-- ⏳ COUNTDOWN SECTION -->
@@ -250,8 +351,23 @@
 
   </div>
 
-  <!-- LIVE COUNTDOWN SCRIPT -->
+  <!-- SCRIPTS -->
   <script>
+    // LORE TOGGLE FUNCTION
+    function toggleLore() {
+      const loreBox = document.getElementById("loreDetails");
+      const btn = document.getElementById("loreBtn");
+
+      if (loreBox.classList.contains("open")) {
+        loreBox.classList.remove("open");
+        btn.innerHTML = "📜 Unveil the Lore";
+      } else {
+        loreBox.classList.add("open");
+        btn.innerHTML = "✨ Hide Lore";
+      }
+    }
+
+    // LIVE COUNTDOWN SCRIPT (AUG 6, 2026)
     const launchDate = new Date("2026/08/06 00:00:00").getTime();
 
     function updateTimer() {
