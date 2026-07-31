@@ -95,10 +95,6 @@
       box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
     }
 
-    .btn-discord {
-      background: #ffffff !important;
-    }
-
     /* 📖 Interactive Lore Card */
     .lore-card {
       background: rgba(13, 9, 18, 0.85);
@@ -197,6 +193,72 @@
       line-height: 1.65;
     }
 
+    /* 🌻 MENTAL HEALTH & SUPPORT CARD */
+    .support-card {
+      background: rgba(13, 9, 18, 0.85);
+      backdrop-filter: blur(10px);
+      padding: 30px 25px;
+      border-radius: 24px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      text-align: center;
+    }
+
+    .support-card h2 {
+      font-size: 1.35rem;
+      color: #d4af37;
+      margin-bottom: 4px;
+    }
+
+    .support-subtitle {
+      font-size: 0.78rem;
+      color: #d4af37;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      opacity: 0.85;
+    }
+
+    .support-card p {
+      font-size: 0.88rem;
+      color: #b5b5c0;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .resource-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .resource-btn {
+      background: rgba(8, 8, 12, 0.85);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 12px;
+      padding: 12px 16px;
+      color: #f0f0f5;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+    }
+
+    .resource-btn:hover {
+      border-color: #d4af37;
+      background: rgba(212, 175, 55, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .resource-btn span {
+      color: #d4af37;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
     /* Countdown Card */
     .countdown-card {
       background: rgba(13, 9, 18, 0.8);
@@ -278,7 +340,7 @@
       </div>
     </header>
 
-    <!-- 📖 LORE SECTION (Option 1 + Option 3) -->
+    <!-- 📖 LORE SECTION -->
     <section class="lore-card">
       <h2>☀️ The Eclipse Lore</h2>
       <div class="lore-subtitle">The Light Within the Shadow</div>
@@ -313,10 +375,34 @@
         <div class="lore-chapter">
           <h3>🌻 III. The Golden Realization</h3>
           <p>
-            Falling to Earth didn't ruin her—it transformed her. Golden sun-rays absorbed into her trim, her hair, and her warm, honeyed tones. Her <strong style="color: #d4af37;">red-bottom heels</strong> represent the ground she now walks on: proof that surviving the dark eclipse makes you stronger than remaining untouched in the sky.
+            Falling to Earth didn't ruin her—it transformed her. Golden sun-rays absorbed into her trim, her hair, and her warm, honeyed tones. Her <strong style="color: #d4af37;">red-bottom heels</strong> represent the ground she walks on: proof that surviving the dark eclipse makes you stronger than remaining untouched in the sky.
           </p>
         </div>
 
+      </div>
+    </section>
+
+    <!-- 🌻 SANCTUARY & SUPPORT CARD -->
+    <section class="support-card">
+      <h2>🌻 Light in the Dark</h2>
+      <div class="support-subtitle">Support & Resources</div>
+      <p>
+        Surviving the dark eclipse takes courage. If you or someone you know is carrying a heavy weight, remember that you are never alone. Help and support are always within reach.
+      </p>
+
+      <div class="resource-grid">
+        <a href="https://www.crisistextline.org/" target="_blank" class="resource-btn">
+          💬 Crisis Text Line <span>TEXT HOME TO 741741</span>
+        </a>
+        <a href="https://988lifeline.org/" target="_blank" class="resource-btn">
+          📞 988 Suicide & Crisis Lifeline <span>CALL OR TEXT 988</span>
+        </a>
+        <a href="https://twloha.com/" target="_blank" class="resource-btn">
+          💛 To Write Love on Her Arms <span>FIND HELP & HOPE</span>
+        </a>
+        <a href="https://www.befrienders.org/" target="_blank" class="resource-btn">
+          🌍 Befrienders Worldwide <span>GLOBAL HELPLINES</span>
+        </a>
       </div>
     </section>
 
