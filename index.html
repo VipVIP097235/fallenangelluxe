@@ -35,35 +35,103 @@
       max-width: 600px;
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 20px;
     }
 
-    h1, h2 {
+    h1, h2, h3 {
       font-family: 'Cinzel', serif;
       letter-spacing: 1px;
     }
 
-    /* Profile Header Card */
-    .profile-card {
-      text-align: center;
+    /* 🗂️ TAB NAVIGATION */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      flex: 1;
+      min-width: 110px;
+      background: rgba(14, 12, 20, 0.75);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: #a0a0b0;
+      padding: 12px 15px;
+      border-radius: 14px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .tab-btn:hover {
+      background: rgba(212, 175, 55, 0.1);
+      color: #d4af37;
+    }
+
+    .tab-btn.active {
+      background: rgba(212, 175, 55, 0.15);
+      color: #d4af37;
+      border-color: #d4af37;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+    }
+
+    /* Tab Content Logic */
+    .tab-content {
+      display: none;
+      flex-direction: column;
+      gap: 24px;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .tab-content.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Shared Card Styles */
+    .card {
       background: rgba(14, 12, 20, 0.75);
       backdrop-filter: blur(10px);
       padding: 35px 25px;
       border-radius: 24px;
       border: 1px solid rgba(212, 175, 55, 0.4);
       box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
+      text-align: center;
     }
 
-    .profile-card h1 {
+    .card h1 {
       font-size: 2rem;
       color: #ffffff;
       margin-bottom: 8px;
     }
 
-    .profile-card p {
+    .card h2 {
+      font-size: 1.5rem;
+      color: #d4af37;
+      margin-bottom: 4px;
+    }
+
+    .card p {
       font-size: 0.95rem;
       color: #a0a0b0;
-      margin-bottom: 25px;
+    }
+
+    .subtitle {
+      font-size: 0.78rem;
+      color: #d4af37;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      opacity: 0.85;
     }
 
     /* Social Links - Solid White Buttons */
@@ -71,6 +139,7 @@
       display: flex;
       flex-direction: column;
       gap: 14px;
+      margin-top: 20px;
     }
 
     .btn {
@@ -95,6 +164,33 @@
       box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
     }
 
+    /* 📸 Featured Image Card */
+    .image-card {
+      background: rgba(13, 9, 18, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 15px;
+      border-radius: 24px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+      transition: transform 0.4s ease;
+    }
+    
+    .image-card img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+    }
+
     /* 📖 Interactive Lore Card */
     .lore-card {
       background: rgba(13, 9, 18, 0.85);
@@ -104,21 +200,6 @@
       border: 1px solid rgba(212, 175, 55, 0.4);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
       text-align: center;
-    }
-
-    .lore-card h2 {
-      font-size: 1.5rem;
-      color: #d4af37;
-      margin-bottom: 4px;
-    }
-
-    .lore-subtitle {
-      font-size: 0.78rem;
-      color: #d4af37;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-      opacity: 0.85;
     }
 
     /* Pull Quote Teaser */
@@ -193,39 +274,7 @@
       line-height: 1.65;
     }
 
-    /* 🌻 MENTAL HEALTH & SUPPORT CARD */
-    .support-card {
-      background: rgba(13, 9, 18, 0.85);
-      backdrop-filter: blur(10px);
-      padding: 30px 25px;
-      border-radius: 24px;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-      text-align: center;
-    }
-
-    .support-card h2 {
-      font-size: 1.35rem;
-      color: #d4af37;
-      margin-bottom: 4px;
-    }
-
-    .support-subtitle {
-      font-size: 0.78rem;
-      color: #d4af37;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-      opacity: 0.85;
-    }
-
-    .support-card p {
-      font-size: 0.88rem;
-      color: #b5b5c0;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
+    /* 🌻 Resources (Light in the Dark) */
     .resource-grid {
       display: flex;
       flex-direction: column;
@@ -259,61 +308,6 @@
       font-weight: 600;
     }
 
-    /* Countdown Card */
-    .countdown-card {
-      background: rgba(13, 9, 18, 0.8);
-      backdrop-filter: blur(10px);
-      padding: 28px 20px;
-      border-radius: 24px;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-      text-align: center;
-    }
-
-    .countdown-card h2 {
-      font-size: 1.3rem;
-      color: #d4af37;
-      margin-bottom: 6px;
-    }
-
-    .countdown-card p {
-      font-size: 0.88rem;
-      color: #c0a0a0;
-      margin-bottom: 20px;
-    }
-
-    /* Countdown Numbers Grid */
-    .timer-grid {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    .time-box {
-      background: rgba(8, 8, 12, 0.85);
-      border: 1px solid rgba(212, 175, 55, 0.5);
-      border-radius: 14px;
-      padding: 12px 14px;
-      min-width: 65px;
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
-    }
-
-    .time-box span {
-      display: block;
-      font-family: 'Cinzel', serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #ffffff;
-      text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
-    }
-
-    .time-box label {
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #808090;
-    }
-
     footer {
       text-align: center;
       font-size: 0.8rem;
@@ -326,110 +320,122 @@
 
   <div class="container">
 
-    <!-- 🪽 BRAND / PROFILE HEADER -->
-    <header class="profile-card">
-      <h1>FALLENANGELLUXE</h1>
-      <p>A new era begins. 🪽🖤</p>
+    <!-- 🗂️ TAB NAVIGATION BUTTONS -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="openTab(event, 'home-tab')">☀️ Home</button>
+      <button class="tab-btn" onclick="openTab(event, 'links-tab')">🔗 Links</button>
+      <button class="tab-btn" onclick="openTab(event, 'support-tab')">🌻 Light in the Dark</button>
+    </div>
 
-      <!-- OFFICIAL SOCIAL LINKS -->
-      <div class="link-group">
-        <a href="https://discord.com/invite/UJ5KxgH4br" target="_blank" class="btn btn-discord">🪽 Join the Sanctuary Discord</a>
-        <a href="https://www.tiktok.com/@fallenangelluxe" target="_blank" class="btn btn-tiktok">🖤 TikTok (@fallenangelluxe)</a>
-        <a href="https://www.youtube.com/@fallenangelluxe" target="_blank" class="btn btn-youtube">📺 YouTube (@fallenangelluxe)</a>
-        <a href="https://x.com/fallenangelluxe" target="_blank" class="btn btn-x">✖️ X / Twitter (@fallenangelluxe)</a>
-      </div>
-    </header>
+    <!-- ===================================== -->
+    <!-- ☀️ TAB 1: HOME (IMAGE FIRST, THEN LORE) -->
+    <!-- ===================================== -->
+    <div id="home-tab" class="tab-content active">
+      
+      <!-- Brand Header -->
+      <header class="card">
+        <h1>FALLENANGELLUXE</h1>
+        <p>A new era begins. 🪽🖤</p>
+      </header>
 
-    <!-- 📖 LORE SECTION -->
-    <section class="lore-card">
-      <h2>☀️ The Eclipse Lore</h2>
-      <div class="lore-subtitle">The Light Within the Shadow</div>
+      <!-- 📸 FEATURED LUXE IMAGE -->
+      <section class="image-card">
+        <img src="luxe.jpg" alt="FallenAngelluxe">
+      </section>
 
-      <!-- Atmospheric Quote Teaser -->
-      <blockquote class="lore-quote">
-        "Even when grounded by sadness or self-doubt... you are still walking, still standing, and still royalty."
-      </blockquote>
+      <!-- 📖 LORE SECTION -->
+      <section class="lore-card">
+        <h2 style="font-family: 'Cinzel', serif; font-size: 1.5rem; color: #d4af37; margin-bottom: 4px;">☀️ The Eclipse Lore</h2>
+        <div class="subtitle">The Light Within the Shadow</div>
 
-      <!-- Expand/Collapse Button -->
-      <button class="lore-toggle-btn" id="loreBtn" onclick="toggleLore()">
-        📜 Unveil the Lore
-      </button>
+        <!-- Atmospheric Quote Teaser -->
+        <blockquote class="lore-quote">
+          "Even when grounded by sadness or self-doubt... you are still walking, still standing, and still royalty."
+        </blockquote>
 
-      <!-- Slide-Out Lore Details -->
-      <div class="lore-details" id="loreDetails">
+        <!-- Expand/Collapse Button -->
+        <button class="lore-toggle-btn" id="loreBtn" onclick="toggleLore()">
+          📜 Unveil the Lore
+        </button>
+
+        <!-- Slide-Out Lore Details -->
+        <div class="lore-details" id="loreDetails">
+          
+          <div class="lore-chapter">
+            <h3>🌌 I. The Sun’s Eclipse</h3>
+            <p>
+              Once a guardian of pure celestial light, a great eclipse brought a deep, overwhelming exhaustion. Disconnected from the flawless, shining light around her, she felt like the only one who didn't belong in the heavens.
+            </p>
+          </div>
+
+          <div class="lore-chapter">
+            <h3>🪽 II. The Fall & The Insecurity</h3>
+            <p>
+              Feeling flawed compared to the perfect beings above, she cast herself down to Earth. She covered herself in wide sunhats, soft layers, and delicate lace—not just for fashion, but as <strong style="color: #ffffff;">protective armor</strong> because she struggled to look at her own reflection.
+            </p>
+          </div>
+
+          <div class="lore-chapter">
+            <h3>🌻 III. The Golden Realization</h3>
+            <p>
+              Falling to Earth didn't ruin her—it transformed her. Golden sun-rays absorbed into her trim, her hair, and her warm, honeyed tones. Her <strong style="color: #d4af37;">red-bottom heels</strong> represent the ground she now walks on: proof that surviving the dark eclipse makes you stronger than remaining untouched in the sky.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ===================================== -->
+    <!-- 🔗 TAB 2: LINKS & SOCIALS             -->
+    <!-- ===================================== -->
+    <div id="links-tab" class="tab-content">
+      
+      <!-- Social Media Directory -->
+      <section class="card">
+        <h2>🔗 Connect & Join</h2>
+        <div class="subtitle">Step Into The Sanctuary</div>
         
-        <div class="lore-chapter">
-          <h3>🌌 I. The Sun’s Eclipse</h3>
-          <p>
-            Once a guardian of pure celestial light, a great eclipse brought a deep, overwhelming exhaustion. Disconnected from the flawless, shining light around her, she felt like the only one who didn't belong in the heavens.
-          </p>
+        <div class="link-group">
+          <a href="https://discord.com/invite/UJ5KxgH4br" target="_blank" class="btn btn-discord">🪽 Join the Sanctuary Discord</a>
+          <a href="https://www.tiktok.com/@fallenangelluxe" target="_blank" class="btn btn-tiktok">🖤 TikTok (@fallenangelluxe)</a>
+          <a href="https://www.youtube.com/@fallenangelluxe" target="_blank" class="btn btn-youtube">📺 YouTube (@fallenangelluxe)</a>
+          <a href="https://x.com/fallenangelluxe" target="_blank" class="btn btn-x">✖️ X / Twitter (@fallenangelluxe)</a>
         </div>
+      </section>
 
-        <div class="lore-chapter">
-          <h3>🪽 II. The Fall & The Insecurity</h3>
-          <p>
-            Feeling flawed compared to the perfect beings above, she cast herself down to Earth. She covered herself in wide sunhats, soft layers, and delicate lace—not just for fashion, but as <strong style="color: #ffffff;">protective armor</strong> because she struggled to look at her own reflection.
-          </p>
+    </div>
+
+    <!-- ===================================== -->
+    <!-- 🌻 TAB 3: LIGHT IN THE DARK           -->
+    <!-- ===================================== -->
+    <div id="support-tab" class="tab-content">
+      
+      <!-- 🌻 MENTAL HEALTH SUPPORT CARD -->
+      <section class="card">
+        <h2>🌻 Light in the Dark</h2>
+        <div class="subtitle">Support & Resources</div>
+        <p style="font-size: 0.88rem; color: #b5b5c0; margin-bottom: 20px;">
+          Surviving the dark eclipse takes courage. If you or someone you know is carrying a heavy weight, remember that you are never alone. Help and support are always within reach.
+        </p>
+        <div class="resource-grid">
+          <a href="https://www.crisistextline.org/" target="_blank" class="resource-btn">
+            💬 Crisis Text Line <span>TEXT HOME TO 741741</span>
+          </a>
+          <a href="https://988lifeline.org/" target="_blank" class="resource-btn">
+            📞 988 Suicide & Crisis Lifeline <span>CALL OR TEXT 988</span>
+          </a>
+          <a href="https://twloha.com/" target="_blank" class="resource-btn">
+            💛 To Write Love on Her Arms <span>FIND HELP & HOPE</span>
+          </a>
+          <a href="https://www.befrienders.org/" target="_blank" class="resource-btn">
+            🌐 Befrienders Worldwide <span>GLOBAL HELPLINES</span>
+          </a>
         </div>
+      </section>
 
-        <div class="lore-chapter">
-          <h3>🌻 III. The Golden Realization</h3>
-          <p>
-            Falling to Earth didn't ruin her—it transformed her. Golden sun-rays absorbed into her trim, her hair, and her warm, honeyed tones. Her <strong style="color: #d4af37;">red-bottom heels</strong> represent the ground she walks on: proof that surviving the dark eclipse makes you stronger than remaining untouched in the sky.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 🌻 SANCTUARY & SUPPORT CARD -->
-    <section class="support-card">
-      <h2>🌻 Light in the Dark</h2>
-      <div class="support-subtitle">Support & Resources</div>
-      <p>
-        Surviving the dark eclipse takes courage. If you or someone you know is carrying a heavy weight, remember that you are never alone. Help and support are always within reach.
-      </p>
-
-      <div class="resource-grid">
-        <a href="https://www.crisistextline.org/" target="_blank" class="resource-btn">
-          💬 Crisis Text Line <span>TEXT HOME TO 741741</span>
-        </a>
-        <a href="https://988lifeline.org/" target="_blank" class="resource-btn">
-          📞 988 Suicide & Crisis Lifeline <span>CALL OR TEXT 988</span>
-        </a>
-        <a href="https://twloha.com/" target="_blank" class="resource-btn">
-          💛 To Write Love on Her Arms <span>FIND HELP & HOPE</span>
-        </a>
-        <a href="https://www.befrienders.org/" target="_blank" class="resource-btn">
-          🌍 Befrienders Worldwide <span>GLOBAL HELPLINES</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- ⏳ COUNTDOWN SECTION -->
-    <section class="countdown-card">
-      <h2>⏳ Official Launch Countdown</h2>
-      <p>The gates open soon...</p>
-
-      <div class="timer-grid">
-        <div class="time-box">
-          <span id="days">00</span>
-          <label>Days</label>
-        </div>
-        <div class="time-box">
-          <span id="hours">00</span>
-          <label>Hours</label>
-        </div>
-        <div class="time-box">
-          <span id="minutes">00</span>
-          <label>Mins</label>
-        </div>
-        <div class="time-box">
-          <span id="seconds">00</span>
-          <label>Secs</label>
-        </div>
-      </div>
-    </section>
+    </div>
 
     <footer>
       © FallenAngelluxe • All Rights Reserved
@@ -439,7 +445,26 @@
 
   <!-- SCRIPTS -->
   <script>
-    // LORE TOGGLE FUNCTION
+    // 🗂️ TAB SWITCHING SCRIPT
+    function openTab(evt, tabId) {
+      // Hide all tab content
+      let contents = document.getElementsByClassName("tab-content");
+      for (let i = 0; i < contents.length; i++) {
+        contents[i].classList.remove("active");
+      }
+      
+      // Remove 'active' class from all buttons
+      let buttons = document.getElementsByClassName("tab-btn");
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+      }
+      
+      // Show the selected tab and set button to active
+      document.getElementById(tabId).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+
+    // 📖 LORE TOGGLE FUNCTION
     function toggleLore() {
       const loreBox = document.getElementById("loreDetails");
       const btn = document.getElementById("loreBtn");
@@ -452,32 +477,6 @@
         btn.innerHTML = "✨ Hide Lore";
       }
     }
-
-    // LIVE COUNTDOWN SCRIPT (AUG 6, 2026)
-    const launchDate = new Date("2026/08/06 00:00:00").getTime();
-
-    function updateTimer() {
-      const now = new Date().getTime();
-      const difference = launchDate - now;
-
-      if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-        document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-        document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-        document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-        document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
-      } else {
-        document.querySelector(".countdown-card p").innerText = "The new era has arrived!";
-        document.querySelector(".timer-grid").innerHTML = "<h3 style='color:#d4af37; font-family:Cinzel;'>NOW LIVE</h3>";
-      }
-    }
-
-    setInterval(updateTimer, 1000);
-    updateTimer();
   </script>
 
 </body>
