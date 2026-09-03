@@ -85,7 +85,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 9998; /* Under the button screen, over the website */
+      z-index: 9998;
       transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
     }
 
@@ -94,7 +94,6 @@
       visibility: hidden;
     }
 
-    /* This adds a slow zoom effect to the angels while they are on screen */
     #angel-image {
       max-width: 90vw;
       max-height: 90vh;
@@ -113,7 +112,7 @@
     #main-content {
       width: 100%;
       max-width: 600px;
-      display: none; /* Hidden on load */
+      display: none;
       flex-direction: column;
       gap: 20px;
       padding: 30px 20px;
@@ -184,7 +183,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Cards & Lore Styles */
+    /* Shared Card Styles */
     .card {
       background: rgba(14, 12, 20, 0.75);
       backdrop-filter: blur(10px);
@@ -207,6 +206,184 @@
       margin-bottom: 18px;
       opacity: 0.85;
     }
+
+    /* Social Links */
+    .link-group {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 20px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      background: #ffffff !important; 
+      color: #08080c !important; 
+      border: 1px solid #ffffff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      background: #f0f0f5 !important;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+    }
+
+    /* 📸 Featured Image Card */
+    .image-card {
+      background: rgba(13, 9, 18, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 15px;
+      border-radius: 24px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+      transition: transform 0.4s ease;
+    }
+    
+    .image-card img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+    }
+
+    /* 📖 Interactive Lore Card */
+    .lore-card {
+      background: rgba(13, 9, 18, 0.85);
+      backdrop-filter: blur(10px);
+      padding: 30px 25px;
+      border-radius: 24px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      text-align: center;
+    }
+
+    .lore-quote {
+      background: rgba(5, 5, 8, 0.6);
+      border-left: 3px solid #d4af37;
+      padding: 12px 16px;
+      margin-bottom: 15px;
+      font-style: italic;
+      color: #f0f0f5;
+      text-align: left;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .lore-toggle-btn {
+      background: rgba(212, 175, 55, 0.12);
+      color: #d4af37;
+      border: 1px solid #d4af37;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .lore-toggle-btn:hover {
+      background: #d4af37;
+      color: #08080c;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    }
+
+    .lore-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), opacity 0.4s ease;
+      opacity: 0;
+      text-align: left;
+    }
+
+    .lore-details.open {
+      max-height: 1200px;
+      opacity: 1;
+      margin-top: 22px;
+      transition: max-height 0.8s ease-in-out, opacity 0.5s ease;
+    }
+
+    .lore-chapter {
+      margin-bottom: 18px;
+    }
+
+    .lore-chapter h3 {
+      color: #ffffff;
+      font-size: 0.98rem;
+      font-family: 'Cinzel', serif;
+      margin-bottom: 6px;
+    }
+
+    .lore-chapter p {
+      font-size: 0.88rem;
+      color: #b5b5c0;
+      line-height: 1.65;
+    }
+
+    /* 🌻 Resources (Light in the Dark) */
+    .resource-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .resource-btn {
+      background: rgba(8, 8, 12, 0.85);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 12px;
+      padding: 12px 16px;
+      color: #f0f0f5;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+    }
+
+    .resource-btn:hover {
+      border-color: #d4af37;
+      background: rgba(212, 175, 55, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .resource-btn span {
+      color: #d4af37;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #808090;
+      margin-top: 15px;
+    }
   </style>
 </head>
 <body>
@@ -224,37 +401,105 @@
 
   <!-- 📦 3. THE MAIN WEBSITE CONTENT -->
   <div id="main-content">
+
+    <!-- 🗂️ TAB NAVIGATION BUTTONS -->
     <div class="tabs">
       <button class="tab-btn active" onclick="openTab(event, 'home-tab')">☀️ Home</button>
       <button class="tab-btn" onclick="openTab(event, 'links-tab')">🔗 Links</button>
       <button class="tab-btn" onclick="openTab(event, 'support-tab')">🌻 Light in the Dark</button>
     </div>
 
-    <!-- TAB 1: HOME -->
+    <!-- ===================================== -->
+    <!-- ☀️ TAB 1: HOME (IMAGE & LORE)         -->
+    <!-- ===================================== -->
     <div id="home-tab" class="tab-content active">
+      
       <header class="card">
         <h1>FALLENANGELLUXE</h1>
         <p>A new era begins. 🪽🖤</p>
       </header>
+
+      <!-- Your Lux picture -->
+      <section class="image-card">
+        <img src="luxe.jpg" alt="FallenAngelluxe">
+      </section>
+
+      <!-- The Lore Section -->
+      <section class="lore-card">
+        <h2 style="font-family: 'Cinzel', serif; font-size: 1.5rem; color: #d4af37; margin-bottom: 4px;">☀️ The Eclipse Lore</h2>
+        <div class="subtitle">The Light Within the Shadow</div>
+
+        <blockquote class="lore-quote">
+          "Even when grounded by sadness or self-doubt... you are still walking, still standing, and still royalty."
+        </blockquote>
+
+        <button class="lore-toggle-btn" id="loreBtn" onclick="toggleLore()">
+          📜 Unveil the Lore
+        </button>
+
+        <div class="lore-details" id="loreDetails">
+          <div class="lore-chapter">
+            <h3>🌌 I. The Sun’s Eclipse</h3>
+            <p>Once a guardian of pure celestial light, a great eclipse brought a deep, overwhelming exhaustion. Disconnected from the flawless, shining light around her, she felt like the only one who didn't belong in the heavens.</p>
+          </div>
+          <div class="lore-chapter">
+            <h3>🪽 II. The Fall & The Insecurity</h3>
+            <p>Feeling flawed compared to the perfect beings above, she cast herself down to Earth. She covered herself in wide sunhats, soft layers, and delicate lace—not just for fashion, but as <strong style="color: #ffffff;">protective armor</strong> because she struggled to look at her own reflection.</p>
+          </div>
+          <div class="lore-chapter">
+            <h3>🌻 III. The Golden Realization</h3>
+            <p>Falling to Earth didn't ruin her—it transformed her. Golden sun-rays absorbed into her trim, her hair, and her warm, honeyed tones. Her <strong style="color: #d4af37;">red-bottom heels</strong> represent the ground she now walks on: proof that surviving the dark eclipse makes you stronger than remaining untouched in the sky.</p>
+          </div>
+        </div>
+      </section>
+
     </div>
 
-    <!-- TAB 2: LINKS -->
+    <!-- ===================================== -->
+    <!-- 🔗 TAB 2: LINKS & SOCIALS             -->
+    <!-- ===================================== -->
     <div id="links-tab" class="tab-content">
+      
       <section class="card">
         <h2>🔗 Connect & Join</h2>
         <div class="subtitle">Step Into The Sanctuary</div>
-        <p>Links go here.</p>
+        
+        <div class="link-group">
+          <a href="https://discord.com/invite/UJ5KxgH4br" target="_blank" class="btn btn-discord">🪽 Join the Sanctuary Discord</a>
+          <a href="https://www.tiktok.com/@fallenangelluxe" target="_blank" class="btn btn-tiktok">🖤 TikTok (@fallenangelluxe)</a>
+          <a href="https://www.youtube.com/@fallenangelluxe" target="_blank" class="btn btn-youtube">📺 YouTube (@fallenangelluxe)</a>
+          <a href="https://x.com/fallenangelluxe" target="_blank" class="btn btn-x">✖️ X / Twitter (@fallenangelluxe)</a>
+          <a href="mailto:fallenangelluxe@gmail.com" class="btn btn-email">✉️ Email (fallenangelluxe@gmail.com)</a>
+        </div>
       </section>
+
     </div>
 
-    <!-- TAB 3: SUPPORT -->
+    <!-- ===================================== -->
+    <!-- 🌻 TAB 3: LIGHT IN THE DARK           -->
+    <!-- ===================================== -->
     <div id="support-tab" class="tab-content">
+      
       <section class="card">
         <h2>🌻 Light in the Dark</h2>
         <div class="subtitle">Support & Resources</div>
-        <p>Resources go here.</p>
+        <p style="font-size: 0.88rem; color: #b5b5c0; margin-bottom: 20px;">
+          Surviving the dark eclipse takes courage. If you or someone you know is carrying a heavy weight, remember that you are never alone. Help and support are always within reach.
+        </p>
+        <div class="resource-grid">
+          <a href="https://www.crisistextline.org/" target="_blank" class="resource-btn">💬 Crisis Text Line <span>TEXT HOME TO 741741</span></a>
+          <a href="https://988lifeline.org/" target="_blank" class="resource-btn">📞 988 Suicide & Crisis Lifeline <span>CALL OR TEXT 988</span></a>
+          <a href="https://twloha.com/" target="_blank" class="resource-btn">💛 To Write Love on Her Arms <span>FIND HELP & HOPE</span></a>
+          <a href="https://www.befrienders.org/" target="_blank" class="resource-btn">🌐 Befrienders Worldwide <span>GLOBAL HELPLINES</span></a>
+        </div>
       </section>
+
     </div>
+
+    <footer>
+      © FallenAngelluxe • All Rights Reserved
+    </footer>
+
   </div>
 
   <!-- SCRIPTS -->
@@ -265,14 +510,13 @@
       const angelScreen = document.getElementById('angel-screen');
       const mainContent = document.getElementById('main-content');
       
-      // Step 1: Fade out the black background and button
+      // Step 1: Fade out the black screen and button
       introScreen.classList.add('hidden');
       
       setTimeout(() => {
-        // Remove button screen completely
         introScreen.style.display = 'none';
         
-        // Step 2: Show the Angel image
+        // Step 2: Show the Angel image screen
         angelScreen.classList.remove('hidden');
 
         // Let the angel image stay on screen for 3.5 seconds
@@ -282,7 +526,6 @@
           angelScreen.classList.add('hidden');
 
           setTimeout(() => {
-            // Remove Angel screen completely
             angelScreen.style.display = 'none';
 
             // Step 4: Fade in the Main Website Content
@@ -291,11 +534,11 @@
               mainContent.classList.add('visible');
             }, 50); 
             
-          }, 1500); // Waits for the angels to finish fading out
+          }, 1500); 
 
-        }, 3500); // 3.5 seconds of viewing the angels
+        }, 3500); 
 
-      }, 1000); // Waits for the button screen to finish fading out
+      }, 1000); 
     });
 
     // 🗂️ TAB SWITCHING SCRIPT
@@ -310,6 +553,20 @@
       }
       document.getElementById(tabId).classList.add("active");
       evt.currentTarget.classList.add("active");
+    }
+
+    // 📖 LORE TOGGLE FUNCTION
+    function toggleLore() {
+      const loreBox = document.getElementById("loreDetails");
+      const btn = document.getElementById("loreBtn");
+
+      if (loreBox.classList.contains("open")) {
+        loreBox.classList.remove("open");
+        btn.innerHTML = "📜 Unveil the Lore";
+      } else {
+        loreBox.classList.add("open");
+        btn.innerHTML = "✨ Hide Lore";
+      }
     }
   </script>
 
