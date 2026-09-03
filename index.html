@@ -17,9 +17,8 @@
     }
 
     body {
-      /* Added a starry dark gradient combined with your angel image */
-      background: radial-gradient(ellipse at bottom, rgba(27, 39, 53, 0.85) 0%, rgba(9, 10, 15, 0.95) 100%), 
-                  url('luxe-laying-down.jpg') no-repeat center center fixed;
+      background: linear-gradient(rgba(5, 5, 8, 0.7), rgba(5, 5, 8, 0.9)), 
+                  url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
       background-size: cover;
       color: #e2e2e8;
       font-family: 'Poppins', sans-serif;
@@ -27,19 +26,18 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 30px 20px;
       min-height: 100vh;
       overflow-x: hidden;
     }
 
-    /* 🌌 INTRO SCREEN STYLES */
+    /* 🎬 1. INTRO SCREEN STYLES */
     #intro-screen {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background-color: #000000;
+      background-color: #030305;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -52,44 +50,80 @@
       visibility: hidden;
     }
 
-    #adventure-btn {
+    #enter-btn {
       background: transparent;
-      color: #ffffff;
+      color: #d4af37;
+      border: 1px solid rgba(212, 175, 55, 0.6);
+      padding: 18px 35px;
       font-family: 'Cinzel', serif;
       font-size: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      padding: 20px 40px;
-      border-radius: 50px;
       cursor: pointer;
-      transition: all 0.5s ease;
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0);
+      border-radius: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      transition: all 0.4s ease;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+      backdrop-filter: blur(5px);
     }
 
-    #adventure-btn:hover {
-      background: rgba(212, 175, 55, 0.1);
-      color: #d4af37;
-      border-color: #d4af37;
-      box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+    #enter-btn:hover {
+      background: rgba(212, 175, 55, 0.15);
+      box-shadow: 0 0 35px rgba(212, 175, 55, 0.5);
       transform: scale(1.05);
+      color: #fff;
+      border-color: #d4af37;
     }
 
-    /* 🪄 MAIN CONTENT FADE-IN */
+    /* 👼 2. ANGEL TRANSITION SCREEN */
+    #angel-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #030305;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9998; /* Under the button screen, over the website */
+      transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
+    }
+
+    #angel-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    /* This adds a slow zoom effect to the angels while they are on screen */
+    #angel-image {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 16px;
+      box-shadow: 0 0 50px rgba(212, 175, 55, 0.2);
+      animation: slowZoom 5s ease-in-out;
+    }
+
+    @keyframes slowZoom {
+      0% { transform: scale(0.95); opacity: 0; }
+      15% { opacity: 1; }
+      100% { transform: scale(1.05); }
+    }
+
+    /* 📦 3. MAIN CONTENT CONTAINER */
     #main-content {
       width: 100%;
       max-width: 600px;
-      display: flex;
+      display: none; /* Hidden on load */
       flex-direction: column;
       gap: 20px;
+      padding: 30px 20px;
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 2s ease 0.8s, transform 2s ease 0.8s;
+      transition: opacity 2s ease-in-out;
     }
 
     #main-content.visible {
+      display: flex;
       opacity: 1;
-      transform: translateY(0);
     }
 
     h1, h2, h3 {
@@ -134,7 +168,6 @@
       box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
     }
 
-    /* Tab Content Logic */
     .tab-content {
       display: none;
       flex-direction: column;
@@ -151,7 +184,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Shared Card Styles */
+    /* Cards & Lore Styles */
     .card {
       background: rgba(14, 12, 20, 0.75);
       backdrop-filter: blur(10px);
@@ -162,22 +195,9 @@
       text-align: center;
     }
 
-    .card h1 {
-      font-size: 2rem;
-      color: #ffffff;
-      margin-bottom: 8px;
-    }
-
-    .card h2 {
-      font-size: 1.5rem;
-      color: #d4af37;
-      margin-bottom: 4px;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      color: #a0a0b0;
-    }
+    .card h1 { font-size: 2rem; color: #ffffff; margin-bottom: 8px; }
+    .card h2 { font-size: 1.5rem; color: #d4af37; margin-bottom: 4px; }
+    .card p { font-size: 0.95rem; color: #a0a0b0; }
 
     .subtitle {
       font-size: 0.78rem;
@@ -187,299 +207,96 @@
       margin-bottom: 18px;
       opacity: 0.85;
     }
-
-    /* Social Links */
-    .link-group {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-top: 20px;
-    }
-
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 15px 20px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: all 0.3s ease;
-      background: #ffffff !important; 
-      color: #08080c !important; 
-      border: 1px solid #ffffff;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      background: #f0f0f5 !important;
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
-    }
-
-    /* 📸 Featured Image Card */
-    .image-card {
-      background: rgba(13, 9, 18, 0.8);
-      backdrop-filter: blur(10px);
-      padding: 15px;
-      border-radius: 24px;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .image-card img {
-      width: 100%;
-      height: auto;
-      border-radius: 16px;
-      border: 1px solid rgba(212, 175, 55, 0.2);
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
-      transition: transform 0.4s ease;
-    }
-    
-    .image-card img:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
-    }
-
-    /* 📖 Interactive Lore Card */
-    .lore-card {
-      background: rgba(13, 9, 18, 0.85);
-      backdrop-filter: blur(10px);
-      padding: 30px 25px;
-      border-radius: 24px;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-      text-align: center;
-    }
-
-    .lore-quote {
-      background: rgba(5, 5, 8, 0.6);
-      border-left: 3px solid #d4af37;
-      padding: 12px 16px;
-      margin-bottom: 15px;
-      font-style: italic;
-      color: #f0f0f5;
-      text-align: left;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      line-height: 1.5;
-    }
-
-    .lore-toggle-btn {
-      background: rgba(212, 175, 55, 0.12);
-      color: #d4af37;
-      border: 1px solid #d4af37;
-      padding: 12px 24px;
-      border-radius: 12px;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-size: 0.88rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .lore-toggle-btn:hover {
-      background: #d4af37;
-      color: #08080c;
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-    }
-
-    .lore-details {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), opacity 0.4s ease;
-      opacity: 0;
-      text-align: left;
-    }
-
-    .lore-details.open {
-      max-height: 1200px;
-      opacity: 1;
-      margin-top: 22px;
-      transition: max-height 0.8s ease-in-out, opacity 0.5s ease;
-    }
-
-    .lore-chapter {
-      margin-bottom: 18px;
-    }
-
-    .lore-chapter h3 {
-      color: #ffffff;
-      font-size: 0.98rem;
-      font-family: 'Cinzel', serif;
-      margin-bottom: 6px;
-    }
-
-    .lore-chapter p {
-      font-size: 0.88rem;
-      color: #b5b5c0;
-      line-height: 1.65;
-    }
-
-    /* 🌻 Resources */
-    .resource-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .resource-btn {
-      background: rgba(8, 8, 12, 0.85);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      border-radius: 12px;
-      padding: 12px 16px;
-      color: #f0f0f5;
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: all 0.3s ease;
-    }
-
-    .resource-btn:hover {
-      border-color: #d4af37;
-      background: rgba(212, 175, 55, 0.1);
-      transform: translateY(-2px);
-    }
-
-    .resource-btn span {
-      color: #d4af37;
-      font-size: 0.78rem;
-      font-weight: 600;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.8rem;
-      color: #808090;
-      margin-top: 15px;
-    }
   </style>
 </head>
 <body>
 
-  <!-- 🌑 PITCH BLACK INTRO SCREEN -->
+  <!-- 🎬 1. THE INTRO SCREEN -->
   <div id="intro-screen">
-    <button id="adventure-btn" onclick="startAdventure()">Let's go for an adventure</button>
+    <button id="enter-btn">Let's go for an adventure ✨</button>
   </div>
 
-  <!-- ✨ MAIN CONTENT (HIDDEN UNTIL BUTTON IS CLICKED) -->
-  <div class="container" id="main-content">
+  <!-- 👼 2. THE ANGEL TRANSITION SCREEN -->
+  <div id="angel-screen" class="hidden">
+    <!-- !!! SWAP THE SRC LINK BELOW WITH YOUR ANGEL PICTURE !!! -->
+    <img id="angel-image" src="https://images.unsplash.com/photo-1601662528567-526cd06f6582?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Angels">
+  </div>
 
-    <!-- 🗂️ TAB NAVIGATION BUTTONS -->
+  <!-- 📦 3. THE MAIN WEBSITE CONTENT -->
+  <div id="main-content">
     <div class="tabs">
       <button class="tab-btn active" onclick="openTab(event, 'home-tab')">☀️ Home</button>
       <button class="tab-btn" onclick="openTab(event, 'links-tab')">🔗 Links</button>
       <button class="tab-btn" onclick="openTab(event, 'support-tab')">🌻 Light in the Dark</button>
     </div>
 
-    <!-- ☀️ TAB 1: HOME -->
+    <!-- TAB 1: HOME -->
     <div id="home-tab" class="tab-content active">
       <header class="card">
         <h1>FALLENANGELLUXE</h1>
         <p>A new era begins. 🪽🖤</p>
       </header>
-
-      <section class="image-card">
-        <img src="luxe.jpg" alt="FallenAngelluxe">
-      </section>
-
-      <section class="lore-card">
-        <h2 style="font-family: 'Cinzel', serif; font-size: 1.5rem; color: #d4af37; margin-bottom: 4px;">☀️ The Eclipse Lore</h2>
-        <div class="subtitle">The Light Within the Shadow</div>
-
-        <blockquote class="lore-quote">
-          "Even when grounded by sadness or self-doubt... you are still walking, still standing, and still royalty."
-        </blockquote>
-
-        <button class="lore-toggle-btn" id="loreBtn" onclick="toggleLore()">
-          📜 Unveil the Lore
-        </button>
-
-        <div class="lore-details" id="loreDetails">
-          <div class="lore-chapter">
-            <h3>🌌 I. The Sun’s Eclipse</h3>
-            <p>Once a guardian of pure celestial light, a great eclipse brought a deep, overwhelming exhaustion. Disconnected from the flawless, shining light around her, she felt like the only one who didn't belong in the heavens.</p>
-          </div>
-          <div class="lore-chapter">
-            <h3>🪽 II. The Fall & The Insecurity</h3>
-            <p>Feeling flawed compared to the perfect beings above, she cast herself down to Earth. She covered herself in wide sunhats, soft layers, and delicate lace—not just for fashion, but as <strong style="color: #ffffff;">protective armor</strong> because she struggled to look at her own reflection.</p>
-          </div>
-          <div class="lore-chapter">
-            <h3>🌻 III. The Golden Realization</h3>
-            <p>Falling to Earth didn't ruin her—it transformed her. Golden sun-rays absorbed into her trim, her hair, and her warm, honeyed tones. Her <strong style="color: #d4af37;">red-bottom heels</strong> represent the ground she now walks on: proof that surviving the dark eclipse makes you stronger than remaining untouched in the sky.</p>
-          </div>
-        </div>
-      </section>
     </div>
 
-    <!-- 🔗 TAB 2: LINKS -->
+    <!-- TAB 2: LINKS -->
     <div id="links-tab" class="tab-content">
       <section class="card">
         <h2>🔗 Connect & Join</h2>
         <div class="subtitle">Step Into The Sanctuary</div>
-        <div class="link-group">
-          <a href="https://discord.com/invite/UJ5KxgH4br" target="_blank" class="btn btn-discord">🪽 Join the Sanctuary Discord</a>
-          <a href="https://www.tiktok.com/@fallenangelluxe" target="_blank" class="btn btn-tiktok">🖤 TikTok (@fallenangelluxe)</a>
-          <a href="https://www.youtube.com/@fallenangelluxe" target="_blank" class="btn btn-youtube">📺 YouTube (@fallenangelluxe)</a>
-          <a href="https://x.com/fallenangelluxe" target="_blank" class="btn btn-x">✖️ X / Twitter (@fallenangelluxe)</a>
-          <a href="mailto:fallenangelluxe@gmail.com" class="btn btn-email">✉️ Email (fallenangelluxe@gmail.com)</a>
-        </div>
+        <p>Links go here.</p>
       </section>
     </div>
 
-    <!-- 🌻 TAB 3: LIGHT IN THE DARK -->
+    <!-- TAB 3: SUPPORT -->
     <div id="support-tab" class="tab-content">
       <section class="card">
         <h2>🌻 Light in the Dark</h2>
         <div class="subtitle">Support & Resources</div>
-        <p style="font-size: 0.88rem; color: #b5b5c0; margin-bottom: 20px;">
-          Surviving the dark eclipse takes courage. If you or someone you know is carrying a heavy weight, remember that you are never alone. Help and support are always within reach.
-        </p>
-        <div class="resource-grid">
-          <a href="https://www.crisistextline.org/" target="_blank" class="resource-btn">
-            💬 Crisis Text Line <span>TEXT HOME TO 741741</span>
-          </a>
-          <a href="https://988lifeline.org/" target="_blank" class="resource-btn">
-            📞 988 Suicide & Crisis Lifeline <span>CALL OR TEXT 988</span>
-          </a>
-          <a href="https://twloha.com/" target="_blank" class="resource-btn">
-            💛 To Write Love on Her Arms <span>FIND HELP & HOPE</span>
-          </a>
-          <a href="https://www.befrienders.org/" target="_blank" class="resource-btn">
-            🌐 Befrienders Worldwide <span>GLOBAL HELPLINES</span>
-          </a>
-        </div>
+        <p>Resources go here.</p>
       </section>
     </div>
-
-    <footer>
-      © FallenAngelluxe • All Rights Reserved
-    </footer>
-
   </div>
 
   <!-- SCRIPTS -->
   <script>
-    // 🌌 ADVENTURE BUTTON SCRIPT (Fades out black screen, fades in content)
-    function startAdventure() {
-      // 1. Hide the black intro screen
-      document.getElementById('intro-screen').classList.add('hidden');
+    // 🎬 CINEMATIC SEQUENCE LOGIC
+    document.getElementById('enter-btn').addEventListener('click', function() {
+      const introScreen = document.getElementById('intro-screen');
+      const angelScreen = document.getElementById('angel-screen');
+      const mainContent = document.getElementById('main-content');
       
-      // 2. Trigger the slide-up fade-in animation for the main content
-      document.getElementById('main-content').classList.add('visible');
-    }
+      // Step 1: Fade out the black background and button
+      introScreen.classList.add('hidden');
+      
+      setTimeout(() => {
+        // Remove button screen completely
+        introScreen.style.display = 'none';
+        
+        // Step 2: Show the Angel image
+        angelScreen.classList.remove('hidden');
+
+        // Let the angel image stay on screen for 3.5 seconds
+        setTimeout(() => {
+          
+          // Step 3: Fade out the Angels
+          angelScreen.classList.add('hidden');
+
+          setTimeout(() => {
+            // Remove Angel screen completely
+            angelScreen.style.display = 'none';
+
+            // Step 4: Fade in the Main Website Content
+            mainContent.style.display = 'flex';
+            setTimeout(() => {
+              mainContent.classList.add('visible');
+            }, 50); 
+            
+          }, 1500); // Waits for the angels to finish fading out
+
+        }, 3500); // 3.5 seconds of viewing the angels
+
+      }, 1000); // Waits for the button screen to finish fading out
+    });
 
     // 🗂️ TAB SWITCHING SCRIPT
     function openTab(evt, tabId) {
@@ -494,22 +311,7 @@
       document.getElementById(tabId).classList.add("active");
       evt.currentTarget.classList.add("active");
     }
-
-    // 📖 LORE TOGGLE FUNCTION
-    function toggleLore() {
-      const loreBox = document.getElementById("loreDetails");
-      const btn = document.getElementById("loreBtn");
-
-      if (loreBox.classList.contains("open")) {
-        loreBox.classList.remove("open");
-        btn.innerHTML = "📜 Unveil the Lore";
-      } else {
-        loreBox.classList.add("open");
-        btn.innerHTML = "✨ Hide Lore";
-      }
-    }
   </script>
 
 </body>
 </html>
-
