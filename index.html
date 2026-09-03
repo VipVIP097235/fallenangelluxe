@@ -17,7 +17,8 @@
     }
 
     body {
-      background: linear-gradient(rgba(5, 5, 8, 0.85), rgba(5, 5, 8, 0.85)), 
+      /* Added a starry dark gradient combined with your angel image */
+      background: radial-gradient(ellipse at bottom, rgba(27, 39, 53, 0.85) 0%, rgba(9, 10, 15, 0.95) 100%), 
                   url('luxe-laying-down.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #e2e2e8;
@@ -28,14 +29,67 @@
       align-items: center;
       padding: 30px 20px;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    .container {
+    /* 🌌 INTRO SCREEN STYLES */
+    #intro-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #000000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
+    }
+
+    #intro-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    #adventure-btn {
+      background: transparent;
+      color: #ffffff;
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      padding: 20px 40px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.5s ease;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0);
+    }
+
+    #adventure-btn:hover {
+      background: rgba(212, 175, 55, 0.1);
+      color: #d4af37;
+      border-color: #d4af37;
+      box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+      transform: scale(1.05);
+    }
+
+    /* 🪄 MAIN CONTENT FADE-IN */
+    #main-content {
       width: 100%;
       max-width: 600px;
       display: flex;
       flex-direction: column;
       gap: 20px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 2s ease 0.8s, transform 2s ease 0.8s;
+    }
+
+    #main-content.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h1, h2, h3 {
@@ -134,7 +188,7 @@
       opacity: 0.85;
     }
 
-    /* Social Links - Solid White Buttons */
+    /* Social Links */
     .link-group {
       display: flex;
       flex-direction: column;
@@ -202,7 +256,6 @@
       text-align: center;
     }
 
-    /* Pull Quote Teaser */
     .lore-quote {
       background: rgba(5, 5, 8, 0.6);
       border-left: 3px solid #d4af37;
@@ -216,7 +269,6 @@
       line-height: 1.5;
     }
 
-    /* Toggle Button */
     .lore-toggle-btn {
       background: rgba(212, 175, 55, 0.12);
       color: #d4af37;
@@ -241,7 +293,6 @@
       box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
     }
 
-    /* Expandable Content Container */
     .lore-details {
       max-height: 0;
       overflow: hidden;
@@ -274,7 +325,7 @@
       line-height: 1.65;
     }
 
-    /* 🌻 Resources (Light in the Dark) */
+    /* 🌻 Resources */
     .resource-grid {
       display: flex;
       flex-direction: column;
@@ -318,7 +369,13 @@
 </head>
 <body>
 
-  <div class="container">
+  <!-- 🌑 PITCH BLACK INTRO SCREEN -->
+  <div id="intro-screen">
+    <button id="adventure-btn" onclick="startAdventure()">Let's go for an adventure</button>
+  </div>
+
+  <!-- ✨ MAIN CONTENT (HIDDEN UNTIL BUTTON IS CLICKED) -->
+  <div class="container" id="main-content">
 
     <!-- 🗂️ TAB NAVIGATION BUTTONS -->
     <div class="tabs">
@@ -327,76 +384,51 @@
       <button class="tab-btn" onclick="openTab(event, 'support-tab')">🌻 Light in the Dark</button>
     </div>
 
-    <!-- ===================================== -->
-    <!-- ☀️ TAB 1: HOME (IMAGE FIRST, THEN LORE) -->
-    <!-- ===================================== -->
+    <!-- ☀️ TAB 1: HOME -->
     <div id="home-tab" class="tab-content active">
-      
-      <!-- Brand Header -->
       <header class="card">
         <h1>FALLENANGELLUXE</h1>
         <p>A new era begins. 🪽🖤</p>
       </header>
 
-      <!-- 📸 FEATURED LUXE IMAGE -->
       <section class="image-card">
         <img src="luxe.jpg" alt="FallenAngelluxe">
       </section>
 
-      <!-- 📖 LORE SECTION -->
       <section class="lore-card">
         <h2 style="font-family: 'Cinzel', serif; font-size: 1.5rem; color: #d4af37; margin-bottom: 4px;">☀️ The Eclipse Lore</h2>
         <div class="subtitle">The Light Within the Shadow</div>
 
-        <!-- Atmospheric Quote Teaser -->
         <blockquote class="lore-quote">
           "Even when grounded by sadness or self-doubt... you are still walking, still standing, and still royalty."
         </blockquote>
 
-        <!-- Expand/Collapse Button -->
         <button class="lore-toggle-btn" id="loreBtn" onclick="toggleLore()">
           📜 Unveil the Lore
         </button>
 
-        <!-- Slide-Out Lore Details -->
         <div class="lore-details" id="loreDetails">
-          
           <div class="lore-chapter">
             <h3>🌌 I. The Sun’s Eclipse</h3>
-            <p>
-              Once a guardian of pure celestial light, a great eclipse brought a deep, overwhelming exhaustion. Disconnected from the flawless, shining light around her, she felt like the only one who didn't belong in the heavens.
-            </p>
+            <p>Once a guardian of pure celestial light, a great eclipse brought a deep, overwhelming exhaustion. Disconnected from the flawless, shining light around her, she felt like the only one who didn't belong in the heavens.</p>
           </div>
-
           <div class="lore-chapter">
             <h3>🪽 II. The Fall & The Insecurity</h3>
-            <p>
-              Feeling flawed compared to the perfect beings above, she cast herself down to Earth. She covered herself in wide sunhats, soft layers, and delicate lace—not just for fashion, but as <strong style="color: #ffffff;">protective armor</strong> because she struggled to look at her own reflection.
-            </p>
+            <p>Feeling flawed compared to the perfect beings above, she cast herself down to Earth. She covered herself in wide sunhats, soft layers, and delicate lace—not just for fashion, but as <strong style="color: #ffffff;">protective armor</strong> because she struggled to look at her own reflection.</p>
           </div>
-
           <div class="lore-chapter">
             <h3>🌻 III. The Golden Realization</h3>
-            <p>
-              Falling to Earth didn't ruin her—it transformed her. Golden sun-rays absorbed into her trim, her hair, and her warm, honeyed tones. Her <strong style="color: #d4af37;">red-bottom heels</strong> represent the ground she now walks on: proof that surviving the dark eclipse makes you stronger than remaining untouched in the sky.
-            </p>
+            <p>Falling to Earth didn't ruin her—it transformed her. Golden sun-rays absorbed into her trim, her hair, and her warm, honeyed tones. Her <strong style="color: #d4af37;">red-bottom heels</strong> represent the ground she now walks on: proof that surviving the dark eclipse makes you stronger than remaining untouched in the sky.</p>
           </div>
-
         </div>
       </section>
-
     </div>
 
-    <!-- ===================================== -->
-    <!-- 🔗 TAB 2: LINKS & SOCIALS             -->
-    <!-- ===================================== -->
+    <!-- 🔗 TAB 2: LINKS -->
     <div id="links-tab" class="tab-content">
-      
-      <!-- Social Media Directory -->
       <section class="card">
         <h2>🔗 Connect & Join</h2>
         <div class="subtitle">Step Into The Sanctuary</div>
-        
         <div class="link-group">
           <a href="https://discord.com/invite/UJ5KxgH4br" target="_blank" class="btn btn-discord">🪽 Join the Sanctuary Discord</a>
           <a href="https://www.tiktok.com/@fallenangelluxe" target="_blank" class="btn btn-tiktok">🖤 TikTok (@fallenangelluxe)</a>
@@ -405,15 +437,10 @@
           <a href="mailto:fallenangelluxe@gmail.com" class="btn btn-email">✉️ Email (fallenangelluxe@gmail.com)</a>
         </div>
       </section>
-
     </div>
 
-    <!-- ===================================== -->
-    <!-- 🌻 TAB 3: LIGHT IN THE DARK           -->
-    <!-- ===================================== -->
+    <!-- 🌻 TAB 3: LIGHT IN THE DARK -->
     <div id="support-tab" class="tab-content">
-      
-      <!-- 🌻 MENTAL HEALTH SUPPORT CARD -->
       <section class="card">
         <h2>🌻 Light in the Dark</h2>
         <div class="subtitle">Support & Resources</div>
@@ -435,7 +462,6 @@
           </a>
         </div>
       </section>
-
     </div>
 
     <footer>
@@ -446,21 +472,25 @@
 
   <!-- SCRIPTS -->
   <script>
+    // 🌌 ADVENTURE BUTTON SCRIPT (Fades out black screen, fades in content)
+    function startAdventure() {
+      // 1. Hide the black intro screen
+      document.getElementById('intro-screen').classList.add('hidden');
+      
+      // 2. Trigger the slide-up fade-in animation for the main content
+      document.getElementById('main-content').classList.add('visible');
+    }
+
     // 🗂️ TAB SWITCHING SCRIPT
     function openTab(evt, tabId) {
-      // Hide all tab content
       let contents = document.getElementsByClassName("tab-content");
       for (let i = 0; i < contents.length; i++) {
         contents[i].classList.remove("active");
       }
-      
-      // Remove 'active' class from all buttons
       let buttons = document.getElementsByClassName("tab-btn");
       for (let i = 0; i < buttons.length; i++) {
         buttons[i].classList.remove("active");
       }
-      
-      // Show the selected tab and set button to active
       document.getElementById(tabId).classList.add("active");
       evt.currentTarget.classList.add("active");
     }
