@@ -15,18 +15,10 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      </style>
+      
     }
 
-    <body> 
-  <!-- Remove these lines from inside <style> -->
-<div id="intro-overlay">
-    <video id="intro-video" autoplay muted playsinline>
-        <source src="intro.mp4" type="video/mp4">
-    </video>
-    <button id="skip-btn" onclick="endIntro()">Skip Intro ✨</button>
-</div>
-
+    body
     {
       background: linear-gradient(rgba(5, 5, 8, 0.85), rgba(5, 5, 8, 0.85)), 
                   url('luxe-laying-down.jpg') no-repeat center center fixed;
@@ -329,6 +321,13 @@
   </style>
 </head>
 <body>
+<!-- Remove these lines from inside <style> -->
+<div id="intro-overlay">
+    <video id="intro-video" autoplay muted playsinline>
+        <source src="intro.mp4" type="video/mp4">
+    </video>
+    <button id="skip-btn" onclick="endIntro()">Skip Intro ✨</button>
+</div>
 
   <div class="container">
 
