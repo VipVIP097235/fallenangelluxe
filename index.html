@@ -363,15 +363,13 @@
   </style>
 </head>
 <body>
-<!-- Remove these lines from inside <style> -->
-<video id="intro-video" autoplay muted playsinline>
-    <source src="intro.mp4" type="video/mp4">
-
-</video>
-
+<div id="intro-overlay">
+    <video id="intro-video" autoplay muted playsinline>
+        <source src="intro.mp4" type="video/mp4">
     </video>
     <button id="skip-btn" onclick="endIntro()">Skip Intro ✨</button>
 </div>
+
 
   <div class="container">
 
@@ -555,10 +553,9 @@
         }, 800);
     }
 
-    video.onended = function() {
-        endIntro();
-    };
+    video.onended = endIntro;
 </script>
+
 
 </body>
 </html>
