@@ -362,9 +362,11 @@
 </head>
 <body>
 <!-- Remove these lines from inside <style> -->
-<div id="intro-overlay">
-    <video id="intro-video" autoplay muted playsinline>
-        <source src="intro.mp4" type="video/mp4">
+<video id="intro-video" autoplay muted playsinline controls>
+    <source src="intro.mp4" type="video/mp4">
+
+</video>
+
     </video>
     <button id="skip-btn" onclick="endIntro()">Skip Intro ✨</button>
 </div>
