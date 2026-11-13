@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -29,6 +30,13 @@
       padding: 30px 20px;
       min-height: 100vh;
     }
+<!-- Intro Video Overlay -->
+<div id="intro-overlay">
+    <video id="intro-video" autoplay muted playsinline>
+        <source src="intro.mp4" type="video/mp4">
+    </video>
+    <button id="skip-btn" onclick="endIntro()">Skip Intro ✨</button>
+</div>
 
     .container {
       width: 100%;
