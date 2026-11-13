@@ -18,15 +18,13 @@
     }
 
     body 
-    {
-    
     <div id="intro-overlay">
     <video id="intro-video" autoplay muted playsinline>
         <source src="intro.mp4" type="video/mp4">
     </video>
     <button id="skip-btn" onclick="endIntro()">Skip Intro ✨</button>
     </div>
-    }
+ 
     {
       background: linear-gradient(rgba(5, 5, 8, 0.85), rgba(5, 5, 8, 0.85)), 
                   url('luxe-laying-down.jpg') no-repeat center center fixed;
@@ -500,6 +498,22 @@
       }
     }
   </script>
+<script>
+    const overlay = document.getElementById('intro-overlay');
+    const video = document.getElementById('intro-video');
+
+    function endIntro() {
+        overlay.style.opacity = '0';
+        setTimeout(() => {
+            overlay.style.display = 'none';
+            video.pause();
+        }, 800);
+    }
+
+    video.onended = function() {
+        endIntro();
+    };
+</script>
 
 </body>
 </html>
